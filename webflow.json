@@ -1,5 +1,5 @@
 {
-  "framework": "astro",
-  "builder": "npm run build",
-  "publicDir": "dist"
+  "cloud": {
+    "framework": "astro"
+  }
 }
