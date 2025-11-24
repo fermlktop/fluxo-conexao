@@ -7,5 +7,9 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   integrations: [react(), tailwind()],
   output: 'server',
+  base: '/fluxo-conexao',
   adapter: cloudflare(),
+  build: {
+    inlineStylesheets: 'always',
+  },
 });
