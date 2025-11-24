@@ -6,5 +6,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), tailwind()],
+  output: 'server',
+  base: '/fluxo-conexao',
   adapter: cloudflare(),
 });
