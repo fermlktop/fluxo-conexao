@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Upsell2 from '../components/Upsell2';
+---
+
+<Layout title="Mentoria O Caminho - Próximo Passo">
+    <Fragment slot="head">
+        <link rel="preload" href="https://scripts.converteai.net/40eff44f-f7c6-4321-a7c6-b39c3f353230/players/6924b4513dad7de372bda0a0/v4/player.js" as="script">
+        <link rel="preload" href="https://cdn.converteai.net/40eff44f-f7c6-4321-a7c6-b39c3f353230/6924b40bf49d199be119e809/main.m3u8" as="fetch">
+    </Fragment>
+	<Upsell2 client:only="react" />
+</Layout>

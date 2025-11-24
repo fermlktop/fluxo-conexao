@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Downsell1 from '../components/Downsell1';
+---
+
+<Layout title="Mentoria O Caminho - Oportunidade Final">
+    <Fragment slot="head">
+        <link rel="preload" href="https://scripts.converteai.net/40eff44f-f7c6-4321-a7c6-b39c3f353230/players/692498fcb4565a02eb37503d/v4/player.js" as="script">
+        <link rel="preload" href="https://cdn.converteai.net/40eff44f-f7c6-4321-a7c6-b39c3f353230/692498e83dad7de372bd7df1/main.m3u8" as="fetch">
+    </Fragment>
+	<Downsell1 client:only="react" />
+</Layout>
