@@ -8,7 +8,7 @@ function Upsell1() {
   const handleDownsell = (e: React.MouseEvent) => {
     e.preventDefault();
     if (window.confirm("Tem certeza que deseja recusar o acompanhamento de 1 ano e o acesso à comunidade?")) {
-      window.location.href = '/ds1';
+      window.location.href = '/fluxo-conexao/ds1';
     }
   };
 

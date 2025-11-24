@@ -7,7 +7,7 @@ function Upsell2() {
   const handleDownsell = (e: React.MouseEvent) => {
     e.preventDefault();
     if (window.confirm("Tem certeza que vai recusar a oportunidade de ir a Israel com o Rabino?")) {
-      window.location.href = '/obrigado';
+      window.location.href = '/fluxo-conexao/obrigado';
     }
   };
 

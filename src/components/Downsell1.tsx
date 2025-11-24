@@ -130,7 +130,7 @@ function Downsell1() {
             <div className="mt-6">
                  <a 
                     href="#" 
-                    onClick={(e) => { e.preventDefault(); window.location.href = '/obrigado'; }} 
+                    onClick={(e) => { e.preventDefault(); window.location.href = '/fluxo-conexao/obrigado'; }} 
                     className="block w-full py-4 text-center text-white/60 font-bold text-lg uppercase tracking-widest border-2 border-white/10 rounded-lg hover:bg-white/5 hover:text-white hover:border-white/30 transition-all duration-300"
                  >
                     Não, obrigado
