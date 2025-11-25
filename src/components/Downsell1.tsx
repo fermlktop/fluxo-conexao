@@ -57,84 +57,92 @@ function Downsell1() {
 
         {/* Video Section */}
         <div className="w-full max-w-[675px] mb-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <VideoEmbed videoId="692498fcb4565a02eb37503d" aspectRatio="aspect-[5/4]" className="border-[#D4A324]/30" />
+            <VideoEmbed 
+                videoId="692498fcb4565a02eb37503d" 
+                aspectRatio="aspect-[5/4]" 
+                className="border-[#D4A324]/30" 
+                delayShow={135}
+            />
             <p className="text-center text-sm text-gray-500 mt-4 italic">
                 "Antes de continuar, assista ao vídeo acima. São dois minutos que podem mudar o rumo da sua travessia."
             </p>
         </div>
 
-        {/* Copy Body */}
-        <div className="mt-4 prose prose-invert prose-lg max-w-3xl text-gray-300 leading-relaxed font-light">
-            <p>
-              Se você chegou até aqui, já faz parte dos poucos que escolheram não viver como os 80%. Sua jornada na Conexão Infinita está garantida.
-            </p>
-            <p className="text-white font-medium text-xl">
-              Mas existe algo mais.
-            </p>
-            <p>
-              Enquanto o Brasil inteiro estiver no carnaval, um grupo de apenas <strong className="text-[#D4A324]">trinta pessoas</strong> estará em Israel comigo. Não como turistas. Como peregrinos. Como família espiritual.
-            </p>
-            
-            <ul className="space-y-3 my-8 pl-0 list-none">
-                {[
-                    "Massada ao nascer do sol.", 
-                    "Mar Morto.", 
-                    "Tzfat, onde a Cabalá nasceu.", 
-                    "A testa no Kotel.", 
-                    "A Caverna dos Patriarcas.", 
-                    "Shabat em Jerusalém, quando o tempo realmente para."
-                ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                        <MapPin className="w-5 h-5 text-[#D4A324] shrink-0 mt-1" />
-                        <span>{item}</span>
-                    </li>
-                ))}
-            </ul>
+        {/* Hidden Content (Revealed by VTurb) */}
+        <div className="esconder w-full animate-fade-in">
+            {/* Copy Body */}
+            <div className="mt-4 prose prose-invert prose-lg max-w-3xl text-gray-300 leading-relaxed font-light mx-auto">
+                <p>
+                  Se você chegou até aqui, já faz parte dos poucos que escolheram não viver como os 80%. Sua jornada na Conexão Infinita está garantida.
+                </p>
+                <p className="text-white font-medium text-xl">
+                  Mas existe algo mais.
+                </p>
+                <p>
+                  Enquanto o Brasil inteiro estiver no carnaval, um grupo de apenas <strong className="text-[#D4A324]">trinta pessoas</strong> estará em Israel comigo. Não como turistas. Como peregrinos. Como família espiritual.
+                </p>
+                
+                <ul className="space-y-3 my-8 pl-0 list-none">
+                    {[
+                        "Massada ao nascer do sol.", 
+                        "Mar Morto.", 
+                        "Tzfat, onde a Cabalá nasceu.", 
+                        "A testa no Kotel.", 
+                        "A Caverna dos Patriarcas.", 
+                        "Shabat em Jerusalém, quando o tempo realmente para."
+                    ].map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                            <MapPin className="w-5 h-5 text-[#D4A324] shrink-0 mt-1" />
+                            <span>{item}</span>
+                        </li>
+                    ))}
+                </ul>
 
-            <p>
-              Oito dias. Tudo incluso. Passagem, hotel, alimentação kosher, transporte, entradas, e eu pessoalmente conduzindo cada passo.
-            </p>
-        </div>
-
-        {/* Pricing & Call to Action */}
-        <div className="mt-16 w-full max-w-2xl bg-gradient-to-b from-zinc-900 to-black border border-[#D4A324]/30 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D4A324] to-transparent"></div>
-            
-            <p className="text-gray-400 uppercase tracking-widest text-sm mb-4 font-bold">Investimento Único</p>
-            
-            <div className="flex flex-col items-center justify-center gap-2 mb-4">
-                <span className="text-5xl sm:text-6xl font-serif font-bold text-white tracking-tight">R$ 30.000</span>
-            </div>
-            <p className="text-[#D4A324] font-medium mb-8 bg-[#D4A324]/10 inline-block px-4 py-1 rounded-full text-sm">
-                Vagas restantes: 6 de 30
-            </p>
-
-            <p className="text-gray-300 italic font-serif mb-10 max-w-lg mx-auto leading-relaxed border-t border-white/5 pt-6">
-                "Quando acabar, acabou. Sem lista de espera. Sem exceção."
-            </p>
-            
-            <div className="mb-8">
-                <p className="text-white font-medium">
-                    Se em algum momento do vídeo seu coração acelerou ou seu corpo arrepiou... você já sabe a resposta.
+                <p>
+                  Oito dias. Tudo incluso. Passagem, hotel, alimentação kosher, transporte, entradas, e eu pessoalmente conduzindo cada passo.
                 </p>
             </div>
 
-            <Button 
-              href="https://go.rabinorony.com.br/pay/vtprr-d" 
-              variant="primary" 
-              className="w-full py-5 text-lg sm:text-xl uppercase tracking-wide shadow-[0_0_30px_rgba(212,163,36,0.2)] animate-[pulse_2s_infinite]"
-            >
-              QUERO ATRAVESSAR EM ISRAEL
-            </Button>
-            
-            <div className="mt-6">
-                 <a 
-                    href="#" 
-                    onClick={(e) => { e.preventDefault(); window.location.href = '/fluxo-conexao/obrigado'; }} 
-                    className="block w-full py-4 text-center text-white/60 font-bold text-lg uppercase tracking-widest border-2 border-white/10 rounded-lg hover:bg-white/5 hover:text-white hover:border-white/30 transition-all duration-300"
-                 >
-                    Não, obrigado
-                </a>
+            {/* Pricing & Call to Action */}
+            <div className="mt-16 w-full max-w-2xl bg-gradient-to-b from-zinc-900 to-black border border-[#D4A324]/30 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden group mx-auto">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D4A324] to-transparent"></div>
+                
+                <p className="text-gray-400 uppercase tracking-widest text-sm mb-4 font-bold">Investimento Único</p>
+                
+                <div className="flex flex-col items-center justify-center gap-2 mb-4">
+                    <span className="text-5xl sm:text-6xl font-serif font-bold text-white tracking-tight">R$ 30.000</span>
+                </div>
+                <p className="text-[#D4A324] font-medium mb-8 bg-[#D4A324]/10 inline-block px-4 py-1 rounded-full text-sm">
+                    Vagas restantes: 6 de 30
+                </p>
+
+                <p className="text-gray-300 italic font-serif mb-10 max-w-lg mx-auto leading-relaxed border-t border-white/5 pt-6">
+                    "Quando acabar, acabou. Sem lista de espera. Sem exceção."
+                </p>
+                
+                <div className="mb-8">
+                    <p className="text-white font-medium">
+                        Se em algum momento do vídeo seu coração acelerou ou seu corpo arrepiou... você já sabe a resposta.
+                    </p>
+                </div>
+
+                <Button 
+                  href="https://go.rabinorony.com.br/pay/vtprr-d" 
+                  variant="primary" 
+                  className="w-full py-5 text-lg sm:text-xl uppercase tracking-wide shadow-[0_0_30px_rgba(212,163,36,0.2)] animate-[pulse_2s_infinite]"
+                >
+                  QUERO ATRAVESSAR EM ISRAEL
+                </Button>
+                
+                <div className="mt-6">
+                     <a 
+                        href="#" 
+                        onClick={(e) => { e.preventDefault(); window.location.href = '/fluxo-conexao/obrigado'; }} 
+                        className="block w-full py-4 text-center text-white/60 font-bold text-lg uppercase tracking-widest border-2 border-white/10 rounded-lg hover:bg-white/5 hover:text-white hover:border-white/30 transition-all duration-300"
+                     >
+                        Não, obrigado
+                    </a>
+                </div>
             </div>
         </div>
 

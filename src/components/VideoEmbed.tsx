@@ -4,25 +4,61 @@ interface VideoEmbedProps {
   videoId?: string;
   aspectRatio?: string;
   className?: string;
+  delayShow?: number; // Time in seconds to show hidden elements
+  hiddenSelector?: string; // CSS selector for elements to hide/show
 }
 
 const VideoEmbed: React.FC<VideoEmbedProps> = ({ 
   videoId = "6854294a0ca68d24f8bc786c", // Default ID
   aspectRatio = "aspect-video",
-  className = ""
+  className = "",
+  delayShow,
+  hiddenSelector = ".esconder"
 }) => {
   useEffect(() => {
     const scriptId = `vturb-script-loader-${videoId}`;
-    if (document.getElementById(scriptId)) return;
+    if (!document.getElementById(scriptId)) {
+        const script = document.createElement('script');
+        script.id = scriptId;
+        script.src = `https://scripts.converteai.net/40eff44f-f7c6-4321-a7c6-b39c3f353230/players/${videoId}/v4/player.js`;
+        script.async = true;
+        script.type = "text/javascript";
+        document.head.appendChild(script);
+    }
 
-    const script = document.createElement('script');
-    script.id = scriptId;
-    script.src = `https://scripts.converteai.net/40eff44f-f7c6-4321-a7c6-b39c3f353230/players/${videoId}/v4/player.js`;
-    script.async = true;
-    script.type = "text/javascript";
-    
-    document.head.appendChild(script);
-  }, [videoId]);
+    // Native VTurb Delay Logic
+    if (delayShow) {
+        const playerId = `vid-${videoId}`;
+        const setupPlayer = () => {
+            const player = document.getElementById(playerId) as any;
+            if (player) {
+                // Ensure we don't attach duplicate listeners if react re-renders
+                if (!player._hasDelayListener) {
+                    player.addEventListener("player:ready", function() {
+                        if (player.displayHiddenElements) {
+                            player.displayHiddenElements(delayShow, [hiddenSelector], {
+                                persist: true
+                            });
+                        }
+                    });
+                    player._hasDelayListener = true;
+                }
+            }
+        };
+
+        // Try immediately and then observe/retry in case script loads later
+        setupPlayer();
+        const interval = setInterval(setupPlayer, 500);
+        
+        // Clear interval after 5 seconds (timeout)
+        const timeout = setTimeout(() => clearInterval(interval), 5000);
+
+        return () => {
+            clearInterval(interval);
+            clearTimeout(timeout);
+        };
+    }
+  }, [videoId, delayShow, hiddenSelector]);
 
   // Use 'any' to bypass TypeScript check for the custom element
   const VturbSmartplayer = 'vturb-smartplayer' as any;
