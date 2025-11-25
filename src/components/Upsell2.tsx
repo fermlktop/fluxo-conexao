@@ -60,7 +60,6 @@ function Upsell2() {
         <div className="w-full max-w-[675px] mb-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <VideoEmbed 
                 videoId="6924b4513dad7de372bda0a0" 
-                aspectRatio="aspect-[5/4]" 
                 className="border-[#D4A324]/30" 
                 delayShow={315}
             />

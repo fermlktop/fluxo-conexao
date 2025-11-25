@@ -10,7 +10,7 @@ interface VideoEmbedProps {
 
 const VideoEmbed: React.FC<VideoEmbedProps> = ({ 
   videoId = "6854294a0ca68d24f8bc786c", // Default ID
-  aspectRatio = "aspect-video",
+  aspectRatio,
   className = "",
   delayShow,
   hiddenSelector = ".esconder"
@@ -63,18 +63,21 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({
   // Use 'any' to bypass TypeScript check for the custom element
   const VturbSmartplayer = 'vturb-smartplayer' as any;
 
+  const containerAspectClass = aspectRatio ? aspectRatio : '';
+  const playerStyle = {
+      display: 'block', 
+      margin: '0 auto', 
+      width: '100%',
+      height: aspectRatio ? '100%' : 'auto' // Only force height if aspect ratio is fixed
+  };
+
   return (
     <div className={`relative w-full mx-auto shadow-2xl shadow-black/80 rounded-sm overflow-hidden border border-gray-800/50 bg-black/40 backdrop-blur-sm ${className}`}>
         {/* The specific custom element requested */}
-        <div className={`w-full ${aspectRatio} relative bg-black`}>
+        <div className={`w-full ${containerAspectClass} relative bg-black`}>
             <VturbSmartplayer 
                 id={`vid-${videoId}`} 
-                style={{
-                    display: 'block', 
-                    margin: '0 auto', 
-                    width: '100%',
-                    height: '100%' 
-                }} 
+                style={playerStyle} 
             />
         </div>
         

@@ -63,7 +63,6 @@ function Upsell1() {
             {/* Using aspect-[5/4] to match 1350x1080 */}
             <VideoEmbed 
                 videoId="692498e6e478a90f43b08572" 
-                aspectRatio="aspect-[5/4]" 
                 className="border-[#D4A324]/30" 
                 delayShow={595}
             />
